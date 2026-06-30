@@ -1,0 +1,17 @@
+{
+  "name": "failuerc-bot",
+  "version": "1.0.0",
+  "description": "Bot Discord de moderação — tickets, verificação OAuth, painéis, autorole e reaction roles",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js",
+    "deploy": "node src/bot/deploy-commands.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.16.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "express-session": "^1.18.1"
+  }
+}

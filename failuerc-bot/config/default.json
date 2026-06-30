@@ -1,0 +1,307 @@
+{
+  "bot": {
+    "nome": "Failuerc",
+    "prefix": "f!",
+    "cor": "#e63946",
+    "corEscura": "#0a0a0a",
+    "corLavanda": "#ff8a94"
+  },
+  "site": {
+    "heroTitulo": "Transforma o teu servidor num lugar seguro",
+    "heroTexto1": "O Failuerc junta moderação, verificação e organização num único bot — feito para comunidades que querem controlo sem complicação.",
+    "heroTexto2": "Tickets privados, verificação OAuth pelo site, reaction roles, autorole e painéis configuráveis por slash commands ou pelo prefixo f!",
+    "heroTexto3": "Deixar o teu servidor organizado e protegido nunca foi tão simples.",
+    "secaoModTitulo": "Moderação que funciona contigo",
+    "secaoModTexto": "Publica painéis de verificação e tickets, define cargos de suporte e fecha tickets com um clique. Tudo configurável no Discord com /painel ou f!painel.",
+    "secaoVerTitulo": "Verificação pelo site",
+    "secaoVerTexto": "Os membros clicam no botão no Discord, entram em reboucas.me/failuerc, autorizam com OAuth e recebem o cargo de verificado automaticamente.",
+    "secaoTicketTitulo": "Tickets organizados",
+    "secaoTicketTexto": "Cada membro abre um canal privado com a equipa. Moderação vê quem abriu, responde no ticket e fecha quando o assunto termina.",
+    "ctaTitulo": "E muito mais",
+    "ctaTexto": "Vamos transformar o teu servidor num lugar incrível, juntos.",
+    "ctaBotao": "Adicionar ao servidor",
+    "stickyTitulo": "Vamos transformar o teu servidor num lugar incrível, juntos.",
+    "stickySubtituloCom": "Junta-te a {servidores} servidores e adiciona o Failuerc, o bot de moderação para Discord.",
+    "stickySubtituloSem": "Sê o primeiro a adicionar o Failuerc ao teu servidor Discord.",
+    "copyright": "Julia Rebouças · reboucas.me",
+    "discordInvite": "https://discord.gg/jwXQ8FwcFf",
+    "discordNome": "/Chill Community"
+  },
+  "apoio": {
+    "revolutUrl": "https://checkout.revolut.com/pay/9b60e0bf-18bd-486a-9b88-74cb30b68c8a",
+    "pixKey": "juliareboucasleite@gmail.com"
+  },
+  "nav": [
+    { "label": "Suporte", "href": "https://discord.gg/5wCmFDptkD", "icon": "support", "external": true },
+    { "label": "Comandos", "href": "/comandos", "icon": "commands" },
+    { "label": "Premium", "href": "/premium", "icon": "premium" },
+    { "label": "Wiki", "href": "/wiki", "icon": "wiki" },
+    { "label": "Painel", "href": "/painel", "icon": "panel" }
+  ],
+  "social": [
+    { "icon": "discord", "label": "Discord", "href": "https://discord.gg/5wCmFDptkD" },
+    { "icon": "github", "label": "GitHub", "href": "https://github.com/juliareboucasleite" },
+    { "icon": "linkedin", "label": "LinkedIn", "href": "https://www.linkedin.com/in/juliareboucasleite/" },
+    { "icon": "globe", "label": "Portfolio", "href": "https://reboucas.me" }
+  ],
+  "footer": [
+    {
+      "titulo": "Failuerc Bot",
+      "links": [
+        { "label": "Página inicial", "href": "/" },
+        { "label": "Failuerc: bot de moderação para Discord", "href": "/sobre" },
+        { "label": "Painel de controlo", "href": "/painel" },
+        { "label": "Servidor Discord", "href": "https://discord.gg/5wCmFDptkD" },
+        { "label": "Suporte", "href": "/suporte" },
+        { "label": "Comandos", "href": "/comandos" },
+        { "label": "Wiki", "href": "/wiki" },
+        { "label": "Premium", "href": "/premium" },
+        { "label": "Parceiros", "href": "/#parceiros" },
+        { "label": "Sobre o Failuerc", "href": "/sobre" }
+      ]
+    },
+    {
+      "titulo": "Recursos",
+      "links": [
+        { "label": "Diretrizes da comunidade", "href": "/diretrizes" },
+        { "label": "Termos de serviço", "href": "/termos" },
+        { "label": "Política de privacidade", "href": "/privacidade" }
+      ]
+    },
+    {
+      "titulo": "Desenvolvimento",
+      "links": [
+        { "label": "reboucas.me", "href": "https://reboucas.me" },
+        { "label": "Portfolio", "href": "https://reboucas.me" },
+        { "label": "Contacto", "href": "https://www.linkedin.com/in/juliareboucasleite/" }
+      ]
+    },
+    {
+      "titulo": "Além do Failuerc",
+      "links": [
+        { "label": "PromoPing", "href": "https://github.com/juliareboucasleite/PromoPing" },
+        { "label": "CodePad", "href": "https://github.com/juliareboucasleite/CodePad" }
+      ]
+    }
+  ],
+  "paginas": {
+    "comandos": {
+      "titulo": "Comandos",
+      "intro": "O Failuerc usa slash commands para configurar o servidor e o prefixo f! para comandos rápidos.",
+      "secoes": [
+        {
+          "titulo": "Prefixo f!",
+          "itens": [
+            "f!help — lista de comandos",
+            "f!ping — latência do bot",
+            "f!painel — resumo da config (admin)"
+          ]
+        },
+        {
+          "titulo": "Verificação",
+          "itens": [
+            "/verificacao configurar — define cargo de verificado",
+            "/verificacao painel — publica painel OAuth",
+            "/verificacao info — config atual"
+          ]
+        },
+        {
+          "titulo": "Tickets",
+          "itens": [
+            "/tickets configurar — categoria e cargos de suporte",
+            "/tickets painel — publica painel de tickets",
+            "/moderacao fechar-ticket — fecha ticket atual"
+          ]
+        },
+        {
+          "titulo": "Cargos e moderação",
+          "itens": [
+            "/autorole adicionar — cargo ao entrar",
+            "/reacao painel — painel de reaction roles",
+            "/reacao adicionar — reação + cargo",
+            "/moderacao verificar — verificar membro manualmente",
+            "/painel — resumo admin"
+          ]
+        }
+      ]
+    },
+    "suporte": {
+      "titulo": "Suporte",
+      "intro": "Precisas de ajuda com o Failuerc? Entra no servidor Discord da comunidade ou consulta os problemas comuns abaixo.",
+      "secoes": [
+        {
+          "titulo": "Servidor Discord",
+          "paragrafos": [
+            "Junta-te ao servidor /Chill Community para pedir ajuda, reportar bugs e falar com a equipa.",
+            "Link: https://discord.gg/5wCmFDptkD"
+          ]
+        },
+        {
+          "titulo": "Problemas comuns",
+          "paragrafos": [
+            "O bot precisa de permissões de Gerir Cargos, Gerir Canais e Gerir Mensagens.",
+            "O cargo do bot tem de estar acima dos cargos que ele atribui."
+          ]
+        },
+        {
+          "titulo": "Contacto",
+          "paragrafos": [
+            "Portfolio e contacto: reboucas.me",
+            "LinkedIn: juliareboucasleite"
+          ]
+        }
+      ]
+    },
+    "painel": {
+      "titulo": "Painel de controlo",
+      "intro": "A configuração do Failuerc é feita diretamente no Discord — não é necessário site separado para administrar o bot.",
+      "secoes": [
+        {
+          "titulo": "Como configurar",
+          "paragrafos": [
+            "1. Convida o bot com permissões de administrador ou de moderação.",
+            "2. Usa /verificacao configurar e /tickets configurar no teu servidor.",
+            "3. Publica os painéis com /verificacao painel e /tickets painel.",
+            "4. Consulta f!painel ou /painel para ver o estado atual."
+          ]
+        },
+        {
+          "titulo": "Verificação web",
+          "paragrafos": [
+            "Os membros verificam em reboucas.me/failuerc após clicarem no botão do painel no Discord."
+          ]
+        }
+      ]
+    },
+    "sobre": {
+      "titulo": "Sobre o Failuerc",
+      "intro": "Failuerc é um bot de moderação para Discord criado por Julia Rebouças.",
+      "secoes": [
+        {
+          "titulo": "O que faz",
+          "paragrafos": [
+            "Verificação OAuth com site próprio, sistema de tickets, reaction roles, autorole e painéis configuráveis.",
+            "Prefixo f! para comandos rápidos e slash commands para setup completo."
+          ]
+        },
+        {
+          "titulo": "História",
+          "paragrafos": [
+            "Desenvolvido como bot completo de moderação para comunidades que precisam de verificação, suporte e cargos automáticos num só lugar."
+          ]
+        }
+      ]
+    },
+    "diretrizes": {
+      "titulo": "Diretrizes da comunidade",
+      "intro": "Ao usar o Failuerc, concordas em seguir estas diretrizes.",
+      "secoes": [
+        {
+          "titulo": "Uso permitido",
+          "paragrafos": [
+            "Usar o bot para moderação legítima do teu servidor Discord.",
+            "Não abusar de tickets, verificação ou reaction roles para spam ou assédio."
+          ]
+        },
+        {
+          "titulo": "Uso proibido",
+          "paragrafos": [
+            "Automatizar spam, raids ou violação dos Termos de Serviço do Discord.",
+            "Tentar explorar falhas do bot ou do site de verificação."
+          ]
+        }
+      ]
+    },
+    "termos": {
+      "titulo": "Termos de serviço",
+      "intro": "Termos simplificados para uso do bot Failuerc.",
+      "secoes": [
+        {
+          "titulo": "Serviço",
+          "paragrafos": [
+            "O Failuerc é fornecido como está, sem garantias. O serviço pode ser alterado ou interrompido a qualquer momento."
+          ]
+        },
+        {
+          "titulo": "Responsabilidade",
+          "paragrafos": [
+            "O administrador do servidor é responsável pela configuração do bot e pelos cargos atribuídos aos membros."
+          ]
+        }
+      ]
+    },
+    "privacidade": {
+      "titulo": "Política de privacidade",
+      "intro": "Como o Failuerc trata os teus dados.",
+      "secoes": [
+        {
+          "titulo": "Dados recolhidos",
+          "paragrafos": [
+            "ID do servidor, nome e ícone (para a lista de parceiros).",
+            "ID do utilizador Discord durante verificação OAuth (para atribuir cargo).",
+            "Configuração do bot por servidor (cargos, tickets, painéis)."
+          ]
+        },
+        {
+          "titulo": "Armazenamento",
+          "paragrafos": [
+            "Os dados ficam em ficheiros locais no servidor reboucas.me. Não são vendidos a terceiros."
+          ]
+        }
+      ]
+    }
+  },
+  "parceiros": {
+    "titulo": "Muitas pessoas confiam no Failuerc",
+    "descricao": "Ao adicionares o bot, o teu servidor aparece aqui automaticamente.",
+    "vazio": "Sê o primeiro servidor na lista — convida o bot abaixo.",
+    "minMembros": 0,
+    "maxExibir": 64
+  },
+  "verificacao": {
+    "titulo": "Verificação",
+    "descricao": "Clique no botão abaixo para verificar a tua conta via Discord.\n\nApós entrares no site e autorizares, recebes automaticamente o cargo de verificado e o acesso ao servidor.",
+    "botao": "Verificar com Discord",
+    "ticketBotao": "Verificação manual",
+    "sucessoTitulo": "Verificado com sucesso",
+    "sucessoDescricao": "Podes fechar esta página e voltar ao Discord.",
+    "altErroTitulo": "Verificação recusada",
+    "altErroDescricao": "Não foi possível verificar esta conta.",
+    "idadeMinimaDias": 30
+  },
+  "tickets": {
+    "titulo": "Central de Suporte",
+    "descricao": "Precisas de ajuda? Abre um ticket e a equipa de moderação responde em breve.",
+    "botao": "Abrir ticket",
+    "fecharBotao": "Fechar",
+    "claimBotao": "Assumir",
+    "unclaimBotao": "Libertar",
+    "abertoTitulo": "Ticket aberto",
+    "abertoDescricao": "Bem-vindo(a) {utilizador}, obrigado por contactares a equipa de suporte! Descreve o teu problema e responderemos o mais breve possível.",
+    "fechadoDmTitulo": "Ticket fechado",
+    "fechadoDmDescricao": "O teu ticket foi fechado em **{servidor}**!",
+    "fechadoDmRodape": "Se tiveres mais questões, podes abrir um novo ticket.",
+    "claimSucessoTitulo": "Assumido",
+    "claimSucessoDescricao": "Assumiste este ticket com sucesso.",
+    "fechadoMotivoPadrao": "Sem motivo indicado.",
+    "verificarBotao": "Verificar",
+    "verificarStaffRoleId": "1519754893030592645",
+    "verificarRoleId": "1519754893030592647",
+    "claimReminderHours": 32,
+    "claimReminderChannelId": "1519754893831835916"
+  },
+  "reacao": {
+    "tituloPadrao": "Escolhe os teus cargos",
+    "descricaoPadrao": "Clica numa reação abaixo para receber ou remover o cargo correspondente."
+  },
+  "welcome": {
+    "message": "Oiii! {usuario}, bom proveito do servidor! espero que goste."
+  },
+  "joinDm": {
+    "enabled": true,
+    "banAppealInvite": "https://discord.gg/CauQtBTDWu",
+    "banAppealNome": "/Chill Community ban Appels",
+    "buttonLabel": "Ban Appeals",
+    "message": "Caso sejas banida/o do servidor, aqui está o servidor de ban appeals:"
+  }
+}

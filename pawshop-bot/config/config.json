@@ -1,8 +1,0 @@
-{
-  "loja": {
-    "nome": "Pawshop",
-    "descricao": "Loja de roupas, UGC e bots para Roblox",
-    "cor": "#ff7eb9"
-  },
-  "categorias": ["roupas", "ugc", "bots"]
-}

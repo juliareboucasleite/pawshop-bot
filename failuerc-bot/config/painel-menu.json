@@ -1,0 +1,96 @@
+{
+  "secoes": [
+    {
+      "id": "topo",
+      "itens": [
+        { "id": "visao-geral", "label": "Visão geral", "icon": "overview" },
+        { "id": "premium-servidor", "label": "Premium para Servidores", "icon": "premium" },
+        { "id": "auditoria", "label": "Registro de Auditoria", "icon": "audit" },
+        { "id": "parceiros", "label": "Failuerc Partners", "icon": "heart", "badge": "NOVO!" }
+      ]
+    },
+    {
+      "id": "comandos",
+      "titulo": "Comandos",
+      "itens": [
+        { "id": "comandos-slash", "label": "Comandos do Failuerc", "icon": "commands" },
+        { "id": "comandos-prefixo", "label": "Comandos por Prefixo", "icon": "prefix" },
+        { "id": "canais-comandos", "label": "Canais de Comandos", "icon": "channel" },
+        { "id": "comandos-custom", "label": "Mensagens Personalizadas", "icon": "code" }
+      ]
+    },
+    {
+      "id": "comunidade",
+      "titulo": "Comunidade",
+      "itens": [
+        { "id": "entrada-saida", "label": "Mensagens de Entrada/Saída", "icon": "wave" },
+        { "id": "autorole", "label": "Autorole", "icon": "shield" },
+        { "id": "contador-membros", "label": "Contador de Membros", "icon": "members" },
+        { "id": "permissoes", "label": "Permissões", "icon": "permissions" }
+      ]
+    },
+    {
+      "id": "moderacao",
+      "titulo": "Moderação",
+      "itens": [
+        { "id": "verificacao", "label": "Verificação OAuth", "icon": "verify" },
+        { "id": "tickets", "label": "Tickets de Suporte", "icon": "ticket" },
+        { "id": "moderacao-manual", "label": "Moderação Manual", "icon": "mod" },
+        { "id": "bloqueador-convites", "label": "Bloqueador de Convites", "icon": "block" },
+        { "id": "canais-armadilha", "label": "Canais de Armadilha", "icon": "trap", "badge": "NOVO!" },
+        { "id": "registro-punicoes", "label": "Registro de Punições", "icon": "scroll" },
+        { "id": "punicoes-avisos", "label": "Punições de Avisos", "icon": "gavel" },
+        { "id": "motivos-punicao", "label": "Motivos de Punição", "icon": "reasons", "badge": "NOVO!" },
+        { "id": "registro-eventos", "label": "Registro de Eventos", "icon": "eye" }
+      ]
+    },
+    {
+      "id": "experiencia",
+      "titulo": "Experiência",
+      "itens": [
+        { "id": "recompensas-xp", "label": "Recompensas por XP", "icon": "podium" },
+        { "id": "bonus-xp", "label": "Bónus de XP", "icon": "refresh" },
+        { "id": "bloqueios-xp", "label": "Bloqueios de XP", "icon": "bag" },
+        { "id": "level-up", "label": "Mensagens ao Subir de Nível", "icon": "level" },
+        { "id": "resetar-xp", "label": "Resetar XP", "icon": "pencil" }
+      ]
+    },
+    {
+      "id": "alertas",
+      "titulo": "Alertas Sociais",
+      "itens": [
+        { "id": "youtube", "label": "Notificações do YouTube", "icon": "youtube" },
+        { "id": "twitch", "label": "Notificações da Twitch", "icon": "twitch" },
+        { "id": "bluesky", "label": "Notificações do Bluesky", "icon": "bluesky" }
+      ]
+    },
+    {
+      "id": "diversao",
+      "titulo": "Diversão",
+      "itens": [
+        { "id": "reaction-roles", "label": "Reaction Roles", "icon": "star" },
+        { "id": "starboard", "label": "Starboard", "icon": "starboard" },
+        { "id": "sorteios", "label": "Sorteios", "icon": "gift" }
+      ]
+    },
+    {
+      "id": "failuerc",
+      "titulo": "Failuerc",
+      "itens": [
+        { "id": "painel-discord", "label": "Painéis no Discord", "icon": "sparkle" },
+        { "id": "parceiros-site", "label": "Listagem no Site", "icon": "globe" }
+      ]
+    },
+    {
+      "id": "premium",
+      "titulo": "Premium",
+      "itens": [
+        { "id": "premium-keys", "label": "Premium Keys", "icon": "key" },
+        { "id": "insignia", "label": "Insígnia Personalizada", "icon": "badge" },
+        { "id": "multiplicador-daily", "label": "Multiplicador do Daily", "icon": "shooting-star" },
+        { "id": "drops", "label": "Drops do Failuerc", "icon": "flame" },
+        { "id": "dias-sem-taxas", "label": "Dias Sem Taxas", "icon": "calendar" }
+      ]
+    }
+  ]
+}

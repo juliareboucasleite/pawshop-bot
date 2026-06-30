@@ -1,0 +1,84 @@
+const { Events } = require('discord.js');
+const fs = require('node:fs');
+const path = require('node:path');
+const config = require('../../../config/default.json');
+const { getGuildConfig } = require('../../utils/store');
+const { isAdmin, isModerator } = require('../../utils/permissions');
+const { isCommandChannelAllowed } = require('../../services/commandChannels');
+const { handleInviteBlock } = require('../../services/inviteBlocker');
+const { handleFashionMessage } = require('../../services/fashionVotes');
+const { handleMusicMessage } = require('../../services/musicShares');
+const { errorEmbed } = require('../../utils/embeds');
+
+const prefixCommands = new Map();
+const prefixPath = path.join(__dirname, '..', 'prefix');
+
+for (const file of fs.readdirSync(prefixPath).filter((f) => f.endsWith('.js'))) {
+  const cmd = require(path.join(prefixPath, file));
+  prefixCommands.set(cmd.name, cmd);
+}
+
+function parsePrefixMessage(content) {
+  const prefix = config.bot.prefix;
+  if (!content.startsWith(prefix)) return null;
+
+  const body = content.slice(prefix.length).trim();
+  if (!body) return null;
+
+  const [name, ...rest] = body.split(/\s+/);
+  return { name: name.toLowerCase(), args: rest, prefix };
+}
+
+module.exports = {
+  name: Events.MessageCreate,
+  async execute(message, client) {
+    if (message.author.bot || !message.guild) return;
+
+    try {
+      await handleInviteBlock(message, client);
+    } catch (err) {
+      console.error('[invite-blocker]', err);
+    }
+
+    try {
+      await handleFashionMessage(message);
+    } catch (err) {
+      console.error('[fashion]', err);
+    }
+
+    try {
+      await handleMusicMessage(message);
+    } catch (err) {
+      console.error('[music]', err);
+    }
+
+    const parsed = parsePrefixMessage(message.content);
+    if (!parsed) return;
+
+    if (!isCommandChannelAllowed(message.guild.id, message.channel.id)) {
+      const cfg = getGuildConfig(message.guild.id);
+      if (!isModerator(message.member, cfg.supportRoleIds)) {
+        await message.reply({
+          embeds: [errorEmbed('Comandos por prefixo não são permitidos neste canal.')],
+        }).catch(() => {});
+        return;
+      }
+    }
+
+    const command = prefixCommands.get(parsed.name);
+    if (!command) return;
+
+    if (command.adminOnly && !isAdmin(message.member)) {
+      await message.reply({
+        embeds: [errorEmbed('Precisas de permissão de administrador.')],
+      }).catch(() => {});
+      return;
+    }
+
+    try {
+      await command.execute(message, parsed.args);
+    } catch (err) {
+      console.error(`[prefix] ${config.bot.prefix}${parsed.name}:`, err);
+    }
+  },
+};

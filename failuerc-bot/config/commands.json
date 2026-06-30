@@ -1,0 +1,158 @@
+{
+  "intro": "Aqui podes ver todos os comandos do Failuerc. Usa / no Discord para slash commands ou o prefixo f! para comandos rápidos.",
+  "prefixoNota": "Para usar um comando, escreve / no chat e escolhe o comando, ou usa f! antes do nome (exemplo: f!help).",
+  "categorias": [
+    {
+      "id": "discord",
+      "nome": "Discord",
+      "descricao": "Comandos gerais relacionados com o bot e o Discord."
+    },
+    {
+      "id": "moderacao",
+      "nome": "Moderação",
+      "descricao": "Painéis, configuração e ferramentas de moderação."
+    },
+    {
+      "id": "verificacao",
+      "nome": "Verificação",
+      "descricao": "Verificação OAuth pelo site reboucas.me/failuerc."
+    },
+    {
+      "id": "tickets",
+      "nome": "Tickets",
+      "descricao": "Sistema de tickets privados de suporte."
+    },
+    {
+      "id": "cargos",
+      "nome": "Cargos",
+      "descricao": "Autorole e reaction roles."
+    },
+    {
+      "id": "prefixo",
+      "nome": "Prefixo f!",
+      "descricao": "Comandos por mensagem com o prefixo f!"
+    }
+  ],
+  "comandos": [
+    {
+      "categoria": "discord",
+      "nome": "/configurator",
+      "descricao": "Configurador interativo de tickets e verificação OAuth.",
+      "sinonimos": ["f!configurator"]
+    },
+    {
+      "categoria": "prefixo",
+      "nome": "f!configurator",
+      "descricao": "Abre o configurador interativo (tickets e verificação).",
+      "sinonimos": []
+    },
+    {
+      "categoria": "discord",
+      "nome": "f!help",
+      "descricao": "Lista todos os comandos disponíveis por mensagem e slash commands.",
+      "sinonimos": ["f!ajuda"]
+    },
+    {
+      "categoria": "discord",
+      "nome": "f!ping",
+      "descricao": "Mostra a latência do bot (mensagem e API).",
+      "sinonimos": []
+    },
+    {
+      "categoria": "discord",
+      "nome": "/painel",
+      "descricao": "Resumo da configuração do bot no servidor (admin).",
+      "sinonimos": ["f!painel"]
+    },
+    {
+      "categoria": "moderacao",
+      "nome": "/moderacao verificar",
+      "descricao": "Verifica manualmente um membro, atribuindo o cargo de verificado.",
+      "sinonimos": []
+    },
+    {
+      "categoria": "moderacao",
+      "nome": "/moderacao fechar-ticket",
+      "descricao": "Fecha o ticket do canal atual.",
+      "sinonimos": []
+    },
+    {
+      "categoria": "verificacao",
+      "nome": "/verificacao configurar",
+      "descricao": "Define o cargo dado após verificação no site.",
+      "sinonimos": []
+    },
+    {
+      "categoria": "verificacao",
+      "nome": "/verificacao painel",
+      "descricao": "Publica o painel de verificação com botão para o site OAuth.",
+      "sinonimos": []
+    },
+    {
+      "categoria": "verificacao",
+      "nome": "/verificacao info",
+      "descricao": "Mostra a configuração atual de verificação.",
+      "sinonimos": []
+    },
+    {
+      "categoria": "tickets",
+      "nome": "/tickets configurar",
+      "descricao": "Define a categoria e cargos de suporte dos tickets.",
+      "sinonimos": []
+    },
+    {
+      "categoria": "tickets",
+      "nome": "/tickets painel",
+      "descricao": "Publica o painel para membros abrirem tickets.",
+      "sinonimos": []
+    },
+    {
+      "categoria": "tickets",
+      "nome": "/tickets info",
+      "descricao": "Mostra a configuração atual de tickets.",
+      "sinonimos": []
+    },
+    {
+      "categoria": "cargos",
+      "nome": "/autorole adicionar",
+      "descricao": "Adiciona um cargo ao autorole (dado ao entrar no servidor).",
+      "sinonimos": []
+    },
+    {
+      "categoria": "cargos",
+      "nome": "/autorole remover",
+      "descricao": "Remove um cargo do autorole.",
+      "sinonimos": []
+    },
+    {
+      "categoria": "cargos",
+      "nome": "/autorole listar",
+      "descricao": "Lista os cargos de autorole configurados.",
+      "sinonimos": []
+    },
+    {
+      "categoria": "cargos",
+      "nome": "/reacao painel",
+      "descricao": "Cria uma mensagem para reaction roles.",
+      "sinonimos": []
+    },
+    {
+      "categoria": "cargos",
+      "nome": "/reacao adicionar",
+      "descricao": "Adiciona uma reação + cargo a uma mensagem. Reagir dá o cargo; remover tira.",
+      "sinonimos": []
+    },
+    {
+      "categoria": "cargos",
+      "nome": "/reacao listar",
+      "descricao": "Lista todas as reaction roles configuradas.",
+      "sinonimos": []
+    },
+    {
+      "categoria": "cargos",
+      "nome": "/reacao limpar",
+      "descricao": "Remove reaction roles de uma mensagem.",
+      "sinonimos": []
+    }
+  ]
+}

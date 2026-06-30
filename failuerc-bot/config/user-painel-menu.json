@@ -1,0 +1,37 @@
+{
+  "secoes": [
+    {
+      "itens": [
+        { "id": "servidores", "label": "Seus Servidores", "icon": "home", "href": "/painel" },
+        { "id": "premium-pessoal", "label": "Premium Pessoal", "icon": "premium", "href": "/painel/secao/premium-pessoal" },
+        { "id": "failuerc-bolso", "label": "Failuerc de Bolso", "icon": "sparkle", "href": "/painel/secao/failuerc-bolso" },
+        { "id": "servidor-discord", "label": "Servidor Discord", "icon": "support", "href": "https://discord.gg/5wCmFDptkD", "external": true }
+      ]
+    },
+    {
+      "titulo": "Recursos",
+      "itens": [
+        { "id": "wiki", "label": "Wiki", "icon": "wiki", "href": "/painel/secao/wiki" },
+        { "id": "comandos", "label": "Comandos", "icon": "commands", "href": "/painel/secao/comandos" },
+        { "id": "suporte", "label": "Suporte", "icon": "support", "href": "/painel/secao/suporte" }
+      ]
+    },
+    {
+      "titulo": "Personalização",
+      "itens": [
+        { "id": "notificacoes", "label": "Notificações", "icon": "bell", "href": "/painel/secao/notificacoes", "badge": "NOVO!" },
+        { "id": "perfil-layout", "label": "Layout do Perfil", "icon": "profile", "href": "/painel/secao/perfil-layout" },
+        { "id": "perfil-bg", "label": "Background do Perfil", "icon": "image", "href": "/painel/secao/perfil-bg" },
+        { "id": "insignias", "label": "Insígnias", "icon": "badge", "href": "/painel/secao/insignias", "badge": "NOVO!" }
+      ]
+    },
+    {
+      "titulo": "Miscelânea",
+      "itens": [
+        { "id": "reputacoes", "label": "Reputações", "icon": "rep", "href": "/painel/secao/reputacoes" },
+        { "id": "api-keys", "label": "API Keys", "icon": "code", "href": "/painel/secao/api-keys" },
+        { "id": "diretrizes", "label": "Diretrizes da Comunidade", "icon": "guidelines", "href": "/diretrizes" }
+      ]
+    }
+  ]
+}

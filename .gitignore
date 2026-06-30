@@ -1,4 +1,9 @@
 .env
 node_modules
 data/admins.json
+failuerc-bot/data/guilds.json
+failuerc-bot/data/parceiros.json
+failuerc-bot/.env
+failuerc-bot-deploy.tar
+*.tar
 .claude

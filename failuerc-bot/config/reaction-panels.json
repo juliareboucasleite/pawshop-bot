@@ -1,0 +1,145 @@
+{
+  "panels": {
+    "cores": {
+      "title": ":WC1: Cores :WC1:",
+      "description": ":WC2: Escolhe a tua cor **♡**! Só podes ter **uma** ativa — reagir a outra troca automaticamente.\n-# Reage abaixo para receber o cargo.",
+      "exclusive": true,
+      "entries": [
+        { "emoji": ":WC0:", "label": "♡ Rosa choque" },
+        { "emoji": ":WC1:", "label": "♡ Vinho" },
+        { "emoji": ":WC2:", "label": "♡ Vermelho" },
+        { "emoji": ":WC3:", "label": "♡ Rosa antigo" },
+        { "emoji": ":WC4:", "label": "♡ Roxo" },
+        { "emoji": ":WC5:", "label": "♡ Laranja" },
+        { "emoji": ":WC6:", "label": "♡ Laranja escuro" },
+        { "emoji": ":WC7:", "label": "♡ Teal" },
+        { "emoji": ":WC8:", "label": "♡ Verde sálvia" },
+        { "emoji": ":WC9:", "label": "♡ Cinza" },
+        { "emoji": ":WC10:", "label": "♡ Azul" }
+      ]
+    },
+    "idade": {
+      "title": ":user: Idade",
+      "description": ":note: Seleciona a tua faixa etária. Só podes ter **uma** ativa.",
+      "exclusive": true,
+      "entries": [
+        { "emoji": ":13_14:", "label": "13-15" },
+        { "emoji": ":15_17:", "label": "16-17" },
+        { "emoji": ":18:", "label": "18-19" },
+        { "emoji": ":WC4:", "label": "20-21" },
+        { "emoji": ":WC5:", "label": "22-25" },
+        { "emoji": ":WC6:", "label": "26-30" },
+        { "emoji": ":WC7:", "label": "30+" }
+      ]
+    },
+    "plataformas": {
+      "title": ":plataformapc: Plataformas",
+      "description": ":sparkles: Onde jogas? Podes escolher **várias** plataformas.",
+      "exclusive": false,
+      "entries": [
+        { "emoji": ":plataformapc:", "label": "PC" },
+        { "emoji": ":plataformaplaystation:", "label": "PlayStation" },
+        { "emoji": ":plataformaxbox:", "label": "Xbox" }
+      ]
+    },
+    "games": {
+      "title": ":pinkstar: Jogos — Parte 1",
+      "description": ":miau_ola_chat: Escolhe os jogos que jogas! Reage para receber o cargo · tira a reação para remover.\n-# Parte 1 de 2",
+      "exclusive": false,
+      "entries": [
+        { "emoji": ":WC1:", "label": "League of Legends" },
+        { "emoji": ":WC2:", "label": "Valorant" },
+        { "emoji": ":WC3:", "label": "Minecraft" },
+        { "emoji": ":WC9:", "label": "Fortnite" },
+        { "emoji": ":WC4:", "label": "Roblox" },
+        { "emoji": ":WC5:", "label": "CS2" },
+        { "emoji": ":WC6:", "label": "GTA" },
+        { "emoji": ":WC7:", "label": "Apex Legends" },
+        { "emoji": ":WC8:", "label": "Overwatch" },
+        { "emoji": ":WC10:", "label": "Phasmophobia" },
+        { "emoji": ":WC0:", "label": "Peak" },
+        { "emoji": ":pinkstar:", "label": "Dead by Daylight" },
+        { "emoji": ":whitestar:", "label": "Rocket League" },
+        { "emoji": ":sparkles:", "label": "Among Us" },
+        { "emoji": ":bunni:", "label": "Genshin Impact" },
+        { "emoji": ":bunni3:", "label": "Animal Crossing" },
+        { "emoji": ":star:", "label": "Stardew Valley" },
+        { "emoji": ":present:", "label": "The Finals" },
+        { "emoji": ":tada:", "label": "Fall Guys" },
+        { "emoji": ":bow:", "label": "Call of Duty" }
+      ]
+    },
+    "games-2": {
+      "title": ":pinkstar: Jogos — Parte 2",
+      "description": ":miau_quer_e_agradece: Mais jogos do servidor!\n-# Parte 2 de 2",
+      "exclusive": false,
+      "entries": [
+        { "emoji": ":WC1:", "label": "Party Animals" },
+        { "emoji": ":WC2:", "label": "Terraria" },
+        { "emoji": ":WC3:", "label": "Overcooked" },
+        { "emoji": ":WC9:", "label": "Sea of Thieves" },
+        { "emoji": ":WC4:", "label": "Raft" },
+        { "emoji": ":WC5:", "label": "OSU" },
+        { "emoji": ":WC6:", "label": "Rainbow 6 Siege" },
+        { "emoji": ":WC7:", "label": "Lethal Company" },
+        { "emoji": ":WC8:", "label": "Red Dead Redemption" },
+        { "emoji": ":sims:", "label": "Genshin Wizard" }
+      ]
+    },
+    "ranks-valorant": {
+      "title": ":radiante: Ranks Valorant",
+      "description": ":checkmark: O teu elo no Valorant — podes atualizar quando subires de rank!",
+      "exclusive": true,
+      "entries": [
+        { "emoji": ":ironvlr:", "label": "Iron" },
+        { "emoji": ":bronze:", "label": "Bronze" },
+        { "emoji": ":silver:", "label": "Silver" },
+        { "emoji": ":gold:", "label": "Gold" },
+        { "emoji": ":plat:", "label": "Platinum" },
+        { "emoji": ":diamond:", "label": "Diamond" },
+        { "emoji": ":ascendente:", "label": "Ascendant" },
+        { "emoji": ":immortal:", "label": "Immortal" },
+        { "emoji": ":radiante:", "label": "Radiant" }
+      ]
+    },
+    "ranks-lol": {
+      "title": ":challengerlol: Ranks League of Legends",
+      "description": ":star: O teu elo no LoL!",
+      "exclusive": true,
+      "entries": [
+        { "emoji": ":bronzelol:", "label": "Bronze" },
+        { "emoji": ":goldlol:", "label": "Gold" },
+        { "emoji": ":platinumlol:", "label": "Platinum" },
+        { "emoji": ":emeraldlol:", "label": "Emerald" },
+        { "emoji": ":diamondlol:", "label": "Diamond" },
+        { "emoji": ":masterlol:", "label": "Master" },
+        { "emoji": ":gmasterlol:", "label": "Grandmaster" },
+        { "emoji": ":challengerlol:", "label": "Challenger" }
+      ]
+    },
+    "pings": {
+      "title": ":warning: Pings do Servidor",
+      "description": ":note: Escolhe que notificações queres receber — podes ter **vários**!",
+      "exclusive": false,
+      "entries": [
+        { "emoji": ":present:", "label": "Anúncios" },
+        { "emoji": ":tada:", "label": "Eventos" },
+        { "emoji": ":star:", "label": "Updates" },
+        { "emoji": ":miau_ola_chat:", "label": "Chat geral" },
+        { "emoji": ":cam:", "label": "Voice / calls" },
+        { "emoji": ":note:", "label": "Mídia" }
+      ]
+    },
+    "quests": {
+      "title": ":present: Discord Quests",
+      "description": ":sparkles: Queres saber de quests, recompensas e ornamentos do Discord?",
+      "exclusive": false,
+      "entries": [
+        { "emoji": ":present:", "label": "Quests" },
+        { "emoji": ":star:", "label": "Recompensas" },
+        { "emoji": ":bow:", "label": "Ornamentos" },
+        { "emoji": ":checkmark:", "label": "Quests de jogos" }
+      ]
+    }
+  }
+}
