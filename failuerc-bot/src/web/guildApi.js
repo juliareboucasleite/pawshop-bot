@@ -157,7 +157,7 @@ function registerGuildApi(router, client, basePath) {
     if (!(await requireGuildAccess(req, res, client, guildId))) return;
 
     const body = req.body || {};
-    const action = body.action === 'kick' ? 'kick' : 'mute';
+    const action = body.action === 'kick' ? 'kick' : body.action === 'mute' ? 'mute' : body.action === 'delete' ? 'delete' : (cfg.inviteBlocker?.action || 'delete');
     const muteMinutes = Math.min(Math.max(Number(body.muteMinutes) || 60, 1), 40320);
 
     updateGuildConfig(guildId, (cfg) => ({

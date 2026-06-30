@@ -176,15 +176,21 @@ async function claimTicket(interaction) {
   });
 }
 
-function getTicketVerifyStaffRoleId(cfg) {
-  return cfg.tickets?.verificarStaffRoleId || config.tickets.verificarStaffRoleId;
+function getTicketVerifyStaffRoleIds(cfg) {
+  const local = cfg.tickets?.verificarStaffRoleIds;
+  if (Array.isArray(local) && local.length) return local;
+
+  const legacy = cfg.tickets?.verificarStaffRoleId || config.tickets.verificarStaffRoleId;
+  if (legacy) return [legacy];
+
+  return config.tickets.verificarStaffRoleIds || [];
 }
 
 function canVerifyTicket(interaction, cfg, ownerId) {
-  const staffRoleId = getTicketVerifyStaffRoleId(cfg);
-  if (!staffRoleId) return false;
+  const staffRoleIds = getTicketVerifyStaffRoleIds(cfg);
+  if (!staffRoleIds.length) return false;
   if (interaction.user.id === ownerId) return false;
-  return hasRole(interaction.member, staffRoleId);
+  return staffRoleIds.some((roleId) => hasRole(interaction.member, roleId));
 }
 
 async function verifyTicketMember(interaction) {

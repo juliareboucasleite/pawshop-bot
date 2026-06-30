@@ -202,7 +202,17 @@ function renderSectionContent(sectionId, data, basePath, clientId) {
     case 'moderacao-manual':
       return panel('Moderação Manual', `
         <p class="guild-panel__intro">Ferramentas de moderação disponíveis no Failuerc.</p>
-        ${cmdList(['/moderacao verificar', '/moderacao fechar-ticket', `${prefix}painel`])}`);
+        ${cmdList([
+          '/moderacao limpar',
+          '/moderacao nuke',
+          '/moderacao expulsar',
+          '/moderacao banir',
+          '/moderacao silenciar',
+          '/moderacao convites',
+          `${prefix}mod`,
+          `${prefix}limpar`,
+          `${prefix}nuke`,
+        ])}`);
 
     case 'bloqueador-convites':
       return panel('Bloqueador de Convites', inviteBlockerForm());

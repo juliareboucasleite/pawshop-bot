@@ -66,6 +66,78 @@
     },
     {
       "categoria": "moderacao",
+      "nome": "/moderacao limpar",
+      "descricao": "Apaga até 100 mensagens do canal (opcionalmente de um membro).",
+      "sinonimos": ["f!limpar", "f!clear"]
+    },
+    {
+      "categoria": "moderacao",
+      "nome": "/moderacao nuke",
+      "descricao": "Recria o canal atual, apagando todo o histórico.",
+      "sinonimos": ["f!nuke"]
+    },
+    {
+      "categoria": "moderacao",
+      "nome": "/moderacao expulsar",
+      "descricao": "Expulsa um membro do servidor.",
+      "sinonimos": ["f!mod expulsar"]
+    },
+    {
+      "categoria": "moderacao",
+      "nome": "/moderacao banir",
+      "descricao": "Bane um membro do servidor.",
+      "sinonimos": ["f!mod banir"]
+    },
+    {
+      "categoria": "moderacao",
+      "nome": "/moderacao silenciar",
+      "descricao": "Silencia um membro por X minutos (timeout).",
+      "sinonimos": ["f!mod silenciar"]
+    },
+    {
+      "categoria": "moderacao",
+      "nome": "/moderacao dessilenciar",
+      "descricao": "Remove o silenciamento de um membro.",
+      "sinonimos": ["f!mod dessilenciar"]
+    },
+    {
+      "categoria": "moderacao",
+      "nome": "/moderacao convites",
+      "descricao": "Ativa e configura o bloqueador de convites externos (apagar, silenciar ou expulsar).",
+      "sinonimos": ["f!mod convites"]
+    },
+    {
+      "categoria": "moderacao",
+      "nome": "/moderacao ajuda",
+      "descricao": "Lista todos os comandos de moderação.",
+      "sinonimos": ["f!mod"]
+    },
+    {
+      "categoria": "moderacao",
+      "nome": "/moderacao avisar",
+      "descricao": "Regista uma advertência a um membro.",
+      "sinonimos": ["f!mod avisar"]
+    },
+    {
+      "categoria": "moderacao",
+      "nome": "/moderacao scan-convites",
+      "descricao": "Procura convites em mensagens antigas e pode apagá-los.",
+      "sinonimos": ["f!mod convites scan"]
+    },
+    {
+      "categoria": "moderacao",
+      "nome": "/moderacao antispam",
+      "descricao": "Ativa o anti-spam contra flood e mensagens repetidas.",
+      "sinonimos": ["f!mod antispam on"]
+    },
+    {
+      "categoria": "discord",
+      "nome": "f!faq painel",
+      "descricao": "Publica painel de informações com menu dropdown estilo FAQ.",
+      "sinonimos": ["f!infos"]
+    },
+    {
+      "categoria": "moderacao",
       "nome": "/moderacao verificar",
       "descricao": "Verifica manualmente um membro, atribuindo o cargo de verificado.",
       "sinonimos": []

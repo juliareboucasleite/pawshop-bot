@@ -51,9 +51,12 @@ function getRotatingActivities() {
       name: 'quem partilha músicas novas',
     },
     {
-      type: ActivityType.Custom,
-      name: 'Custom Status',
-      state: `Apoia com ${p}apoia ♡`,
+      type: ActivityType.Watching,
+      name: 'convites suspeitos 🚫',
+    },
+    {
+      type: ActivityType.Playing,
+      name: `${p}mod`,
     },
   ];
 }

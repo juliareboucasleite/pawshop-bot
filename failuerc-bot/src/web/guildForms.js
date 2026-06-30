@@ -201,13 +201,14 @@ function inviteBlockerForm() {
   return `
   ${formFlash()}
   <form id="form-invite-blocker" class="guild-form">
-    <p class="guild-panel__intro">Monitoriza todos os canais de texto onde o bot pode ler mensagens. Convites de outros servidores são removidos e o autor é silenciado ou expulso.</p>
+    <p class="guild-panel__intro">Monitoriza todos os canais de texto onde o bot pode ler mensagens. Convites de outros servidores são removidos; opcionalmente o autor é silenciado ou expulso.</p>
     <fieldset class="guild-form-group">
       <legend>Definições</legend>
       <label class="guild-form-check"><input type="checkbox" id="ib-enabled"> Bloqueador de convites ativo</label>
       <label class="guild-form-field">
         <span>Ação ao detetar convite externo</span>
         <select id="ib-action" class="guild-form-select">
+          <option value="delete">Só apagar mensagem</option>
           <option value="mute">Silenciar (timeout)</option>
           <option value="kick">Expulsar do servidor</option>
         </select>

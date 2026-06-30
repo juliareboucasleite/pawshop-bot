@@ -1,4 +1,4 @@
-const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
+const { ActionRowBuilder, ButtonBuilder, ButtonStyle, StringSelectMenuBuilder } = require('discord.js');
 const config = require('../../config/default.json');
 
 const CUSTOM_IDS = {
@@ -14,6 +14,7 @@ const CUSTOM_IDS = {
   SUGGEST_MODAL: 'failuerc:suggest-modal',
   CONFESS_OPEN: 'failuerc:confess-open',
   CONFESS_MODAL: 'failuerc:confess-modal',
+  FAQ_SELECT: 'failuerc:faq',
 };
 
 function confessOpenId(guildId) {
@@ -68,6 +69,31 @@ function parseSuggestActionId(customId) {
   const discuss = customId.match(/^failuerc:suggest:discuss:(\d+)$/);
   if (discuss) return { action: 'discuss', messageId: discuss[1] };
   return null;
+}
+
+function faqSelectId(guildId) {
+  return `${CUSTOM_IDS.FAQ_SELECT}:${guildId}`;
+}
+
+function parseFaqSelectId(customId) {
+  const match = customId.match(/^failuerc:faq:(\d+)$/);
+  return match ? match[1] : null;
+}
+
+function faqSelectRow(guildId, panel) {
+  const menu = new StringSelectMenuBuilder()
+    .setCustomId(faqSelectId(guildId))
+    .setPlaceholder(panel.selectPlaceholder || 'Seleciona um tópico…')
+    .addOptions(
+      panel.topics.map((topic) => ({
+        label: topic.label.slice(0, 100),
+        value: topic.id,
+        emoji: topic.emoji || undefined,
+        description: (topic.description || topic.label).slice(0, 100),
+      })),
+    );
+
+  return new ActionRowBuilder().addComponents(menu);
 }
 
 function verifyPanelButtons(verifyUrl) {
@@ -210,6 +236,9 @@ module.exports = {
   confessModalId,
   parseConfessOpenId,
   parseConfessModalId,
+  faqSelectRow,
+  faqSelectId,
+  parseFaqSelectId,
   reactionKey,
   parseReactionInput,
   emojiKey: reactionKey,

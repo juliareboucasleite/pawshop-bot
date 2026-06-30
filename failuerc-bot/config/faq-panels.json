@@ -1,0 +1,133 @@
+{
+  "default": {
+    "title": "Informações — /Chill Community",
+    "intro": [
+      "₊˚⊹ **bem-vinda ao cantinho de infos** ⊹˚₊",
+      "",
+      "aqui podes ver tudo sobre o servidor e a **Failuerc** ♡",
+      "₊ ↷ seleciona uma opção abaixo ໒꒱",
+      "",
+      "꒰ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ꒱"
+    ],
+    "selectPlaceholder": "ʚ — ▧ ₊ 🌷 ˚ - clique aqui ! ɞ",
+    "footer": "Failuerc ⊹ ♡ ⊹ infos",
+    "topics": [
+      {
+        "id": "comandos",
+        "label": "comandos do bot",
+        "emoji": "📚",
+        "title": "📚 Comandos do Failuerc",
+        "lines": [
+          "⊹ **comandos gerais**",
+          "⊂ • `f!help` — ajuda e links úteis",
+          "⊂ • `f!ping` — latência do bot",
+          "⊂ • `f!apoia` — apoiar o projeto",
+          "",
+          "⊹ **comunidade**",
+          "⊂ • `f!musica perfil` — perfil musical",
+          "⊂ • fashion check — reage com ✅ ou ❌",
+          "",
+          "⊹ **slash commands**",
+          "⊂ • `/tickets` · `/verificacao` · `/moderacao`",
+          "",
+          "› lista completa: **reboucas.me/failuerc/comandos**"
+        ]
+      },
+      {
+        "id": "verificacao",
+        "label": "verificação",
+        "emoji": "✅",
+        "title": "✅ Verificação",
+        "lines": [
+          "para acederes a todo o servidor, precisas de te verificar ♡",
+          "",
+          "⊹ **como funciona**",
+          "⊂ • clica no botão de verificação no canal indicado",
+          "⊂ • autoriza com Discord em **reboucas.me/failuerc**",
+          "⊂ • recebes o cargo de verificado automaticamente",
+          "",
+          "⊹ **dúvidas?**",
+          "⊂ • abre um ticket de suporte na categoria adequada",
+          "",
+          "› a verificação protege a comunidade de contas falsas"
+        ]
+      },
+      {
+        "id": "tickets",
+        "label": "tickets & suporte",
+        "emoji": "🎫",
+        "title": "🎫 Tickets & Suporte",
+        "lines": [
+          "precisas de falar com a staff? abre um ticket ♡",
+          "",
+          "⊹ **como abrir**",
+          "⊂ • vai ao canal de tickets do servidor",
+          "⊂ • escolhe o tipo de pedido no menu",
+          "⊂ • um canal privado é criado só para ti e a equipa",
+          "",
+          "⊹ **dicas**",
+          "⊂ • explica o problema com calma",
+          "⊂ • não abras ticket sem motivo — pode dar advertência",
+          "",
+          "› a staff responde o mais rápido possível ✿"
+        ]
+      },
+      {
+        "id": "moderação",
+        "label": "moderação & regras",
+        "emoji": "⚖️",
+        "title": "⚖️ Moderação & Regras",
+        "lines": [
+          "a **Failuerc** ajuda a cuidar do servidor automaticamente ♡",
+          "",
+          "⊹ **o que monitorizamos**",
+          "⊂ • convites de outros servidores (removidos)",
+          "⊂ • spam e flood de mensagens",
+          "⊂ • avisos acumulados para quem infringe regras",
+          "",
+          "⊹ **sê gentil**",
+          "⊂ • respeita todos os membros",
+          "⊂ • não partilhes links suspeitos",
+          "⊂ • segue as diretrizes da comunidade",
+          "",
+          "› diretrizes: **reboucas.me/failuerc/diretrizes**"
+        ]
+      },
+      {
+        "id": "musica",
+        "label": "cantinho da música",
+        "emoji": "🎵",
+        "title": "🎵 Cantinho da Música",
+        "lines": [
+          "partilha as tuas músicas favoritas no canal dedicado ♫",
+          "",
+          "⊹ **como usar**",
+          "⊂ • cola o link (Spotify, YouTube, SoundCloud…)",
+          "⊂ • o bot mostra capa, artista e título automaticamente",
+          "",
+          "⊹ **perfil musical**",
+          "⊂ • `f!musica perfil` — vê o teu histórico",
+          "⊂ • `f!musica historico` — últimas partilhas",
+          "",
+          "› diverte-te e descobre novos gostos musicais ✦"
+        ]
+      },
+      {
+        "id": "apoio",
+        "label": "apoia o projeto",
+        "emoji": "💜",
+        "title": "💜 Apoia o Failuerc",
+        "lines": [
+          "o Failuerc é feito com carinho pela Julia Rebouças ♡",
+          "",
+          "⊹ **como apoiar**",
+          "⊂ • usa `f!apoia` para ver Revolut e PIX",
+          "⊂ • partilha o bot com amigos",
+          "⊂ • dá feedback e sugestões no servidor",
+          "",
+          "› cada apoio ajuda a manter o bot online e a melhorar ✿"
+        ]
+      }
+    ]
+  }
+}

@@ -285,7 +285,19 @@
     "claimSucessoDescricao": "Assumiste este ticket com sucesso.",
     "fechadoMotivoPadrao": "Sem motivo indicado.",
     "verificarBotao": "Verificar",
-    "verificarStaffRoleId": "1519754893030592645",
+    "verificarStaffRoleIds": [
+      "1519754893055754255",
+      "1519754893055754254",
+      "1519754893055754253",
+      "1519754893055754252",
+      "1519754893055754251",
+      "1519754893055754250",
+      "1519754893047496813",
+      "1519754893047496812",
+      "1519754893047496811",
+      "1519754893047496810",
+      "1519754893047496808"
+    ],
     "verificarRoleId": "1519754893030592647",
     "claimReminderHours": 32,
     "claimReminderChannelId": "1519754893831835916"

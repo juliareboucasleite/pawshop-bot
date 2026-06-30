@@ -33,8 +33,12 @@ async function isForeignInvite(client, guildId, code) {
 }
 
 async function applyInvitePunishment(member, cfg) {
-  const action = cfg.inviteBlocker?.action || 'mute';
+  const action = cfg.inviteBlocker?.action || 'delete';
   const reason = 'Convite de outro servidor (Failuerc)';
+
+  if (action === 'delete') {
+    return { ok: true, action: 'delete' };
+  }
 
   if (action === 'kick') {
     if (!member.kickable) return { ok: false, action: 'kick', error: 'Sem permissão para expulsar.' };
@@ -55,11 +59,14 @@ async function logInviteBlock(message, cfg, result) {
   const ch = message.guild.channels.cache.get(logId);
   if (!ch?.isTextBased()) return;
 
-  const actionLabel = result.action === 'kick' ? 'Expulso' : `Silenciado (${result.minutes || 60} min)`;
+  const actionLabel = result.action === 'kick'
+    ? 'Expulso'
+    : result.action === 'delete'
+      ? 'Mensagem removida'
+      : `Silenciado (${result.minutes || 60} min)`;
   await ch.send(
     `**Bloqueador de convites** — ${message.author} em ${message.channel}\n`
-    + `Ação: ${actionLabel}\n`
-    + `Mensagem removida.`,
+    + `Ação: ${actionLabel}.`,
   ).catch(() => {});
 }
 
@@ -101,4 +108,6 @@ async function handleInviteBlock(message, client) {
 module.exports = {
   extractInviteCodes,
   handleInviteBlock,
+  isForeignInvite,
+  isExemptFromInviteBlock,
 };

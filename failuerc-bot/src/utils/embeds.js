@@ -173,8 +173,8 @@ function anonymousConfessionEmbed(number, content) {
 
 function communityPostEmbed(type, content, { anonymous = true, author = null } = {}) {
   const meta = {
-    confissao: { title: '🤫 Confissão', color: 0x9b59b6 },
-    desabafo: { title: '💭 Desabafo', color: 0x3498db },
+    confissao: { title: 'Confissão', color: 0x9b59b6 },
+    desabafo: { title: 'Desabafo', color: 0x3498db },
   }[type] || { title: 'Mensagem', color: COR };
 
   return {
@@ -194,7 +194,7 @@ function suggestionPanelEmbed() {
   return {
     ...baseEmbed(),
     color: 0xffc9d4,
-    title: '✿ ｡ﾟ  sugestõezinhas  ﾟ｡ ✿',
+    title: 'Sugestões',
     description: [
       '꒰ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ꒱',
       '',
@@ -221,9 +221,9 @@ function suggestionPostEmbed({ author, platform, title, description, upvotes = 0
   return {
     ...baseEmbed(),
     color: 0xffc9d4,
-    author: { name: `✿ ｡ﾟ  nova sugestão  ﾟ｡ ✿` },
+    author: { name: `Nova sugestão` },
     description: [
-      `✿ ｡ﾟ  nova sugestão de ${author}  ✦*ﾟ`,
+      `Nova sugestão de ${author}`,
       '',
       `> ⋆ ⊰ **${title}**`,
       `> ⠀ ⠀ ${description}`.slice(0, 900),
@@ -273,7 +273,7 @@ function waitingNotifyEmbed(member, thread, reason) {
 function verifiedWelcomeEmbed(member) {
   return {
     color: 0xb8e6b0,
-    author: { name: `✿ ｡ﾟ  recepção  ﾟ｡ ✿` },
+    author: { name: `Recepção` },
     description: [
       `💐 ｡ﾟ  **bem-vinda/o, ${member.displayName}**  ✧ﾟ｡`,
       '',
@@ -290,12 +290,12 @@ function verifiedWelcomeEmbed(member) {
 function fashionPanelEmbed() {
   return {
     color: 0xffb7c5,
-    author: { name: '✿  fashion check  ✿' },
+    author: { name: 'Fashion check' },
     description: [
       '₊˚⊹ **como funciona** ⊹˚₊',
       '',
       '› envia uma foto do teu outfit ou peça',
-      '› a comunidade vota com **✅ SIM** ou **❌ NÃO**',
+      '› a comunidade vota com <:i_amei:> ou <:i_odiei:>',
       '› no fim do mês recebes um resumo por DM ♡',
     ].join('\n'),
     footer: { text: `${config.bot.nome} · fashion check` },
@@ -306,14 +306,14 @@ function fashionMonthlyReportEmbed({ yes, no, monthLabel }) {
   const total = yes + no;
   return {
     color: 0xffb7c5,
-    author: { name: '✿ fashion check · resumo mensal ✿' },
+    author: { name: 'Fashion check: Resumo mensal' },
     description: [
       `₊˚⊹ **${monthLabel}** ⊹˚₊`,
       '',
       'Obrigada por participares no canal fashion ♡',
       '',
-      `› **${yes}** reações **SIM** ✅`,
-      `› **${no}** reações **NÃO** ❌`,
+      `› **${yes}** reações <:i_amei:>`,
+      `› **${no}** reações <:i_odiei:>`,
       total > 0 ? `› **${total}** votos no total ⊹` : null,
     ].filter(Boolean).join('\n'),
     footer: { text: `${config.bot.nome} · fashion check` },
@@ -324,7 +324,7 @@ function musicHelpEmbed() {
   const p = config.bot.prefix;
   return {
     color: 0xc4b5fd,
-    author: { name: '✿ como usar o cantinho da música ✿' },
+    author: { name: 'Como usar o cantinho da música' },
     description: [
       '₊˚⊹ **partilhar é automático** ⊹˚₊',
       '',
@@ -351,7 +351,7 @@ function musicHelpEmbed() {
 function musicPanelEmbed() {
   return {
     color: 0xc4b5fd,
-    author: { name: '✿ cantinho da música ✿' },
+    author: { name: 'Cantinho da música' },
     description: [
       '## Bem-vinda ao cantinho da música <a:b_star:1520081959886262332>',
       '',
@@ -432,10 +432,10 @@ function musicProfileEmbed(user, profile) {
 
   const total = shares.length;
   const fields = [
-    { name: `🎵 Músicas (${byType.track.length})`, value: formatList(byType.track), inline: false },
-    { name: `💿 Álbuns (${byType.album.length})`, value: formatList(byType.album), inline: false },
-    { name: `📀 Playlists (${byType.playlist.length})`, value: formatList(byType.playlist), inline: false },
-    { name: `🎤 Artistas (${byType.artist.length})`, value: formatList(byType.artist), inline: false },
+    { name: `Músicas (${byType.track.length})`, value: formatList(byType.track), inline: false },
+    { name: `Álbuns (${byType.album.length})`, value: formatList(byType.album), inline: false },
+    { name: `Playlists (${byType.playlist.length})`, value: formatList(byType.playlist), inline: false },
+    { name: `Artistas (${byType.artist.length})`, value: formatList(byType.artist), inline: false },
   ];
 
   return {
@@ -469,6 +469,74 @@ function joinDmEmbed(member, settings = {}) {
   };
 }
 
+function moderationLogEmbed(action, details = {}) {
+  const labels = {
+    limpar: 'Mensagens apagadas',
+    nuke: 'Canal recriado (nuke)',
+    expulsar: 'Membro expulso',
+    banir: 'Membro banido',
+    silenciar: 'Membro silenciado',
+    dessilenciar: 'Silenciamento removido',
+    convites: 'Bloqueador de convites',
+    aviso: '⚠️ Advertência',
+    antispam: '🚫 Anti-spam',
+  };
+
+  const lines = [];
+  if (details.moderator) lines.push(`**Moderador:** ${details.moderator}`);
+  if (details.target) lines.push(`**Membro:** ${details.target}`);
+  if (details.channel) lines.push(`**Canal:** ${details.channel}`);
+  if (details.amount != null) lines.push(`**Quantidade:** ${details.amount}`);
+  if (details.minutes != null) lines.push(`**Duração:** ${details.minutes} min`);
+  if (details.reason) lines.push(`**Motivo:** ${details.reason}`);
+  if (details.extra) lines.push(details.extra);
+
+  return {
+    ...baseEmbed(),
+    title: labels[action] || 'Moderação',
+    description: lines.join('\n') || '—',
+    footer: { text: `${config.bot.nome} · moderação` },
+  };
+}
+
+function modHelpEmbed() {
+  const p = config.bot.prefix;
+  return {
+    ...baseEmbed(),
+    title: 'Ferramentas de moderação',
+    description: [
+      '**Limpeza**',
+      `\`${p}limpar 50\` — apaga até 100 mensagens`,
+      `\`${p}limpar 30 @membro\` — apaga mensagens de um membro`,
+      `\`${p}nuke confirmar\` — recria o canal (apaga tudo)`,
+      '',
+      '**Ações em membros**',
+      `\`${p}mod expulsar @membro [motivo]\``,
+      `\`${p}mod banir @membro [motivo]\``,
+      `\`${p}mod silenciar @membro 60 [motivo]\` — minutos`,
+      `\`${p}mod dessilenciar @membro\``,
+      '',
+      '**Convites & scan**',
+      `\`${p}mod convites on\` / \`off\``,
+      `\`${p}mod convites scan [#canal] [limite]\` — procura convites antigos`,
+      '',
+      '**Avisos**',
+      `\`${p}mod avisar @membro [motivo]\``,
+      `\`${p}mod avisos @membro\` — ver avisos`,
+      `\`${p}mod limpar-avisos @membro\``,
+      '',
+      '**Anti-spam**',
+      `\`${p}mod antispam on\` / \`off\``,
+      '',
+      '**Painéis**',
+      `\`${p}faq painel\` — painel de infos com menu`,
+      '',
+      'Também disponível via **/moderacao**.',
+    ].join('\n'),
+    footer: { text: `${config.bot.nome} · moderação` },
+  };
+}
+
 function apoiaEmbed() {
   const apoio = config.apoio || {};
   const revolut = apoio.revolutUrl || 'https://checkout.revolut.com/pay/9b60e0bf-18bd-486a-9b88-74cb30b68c8a';
@@ -477,27 +545,82 @@ function apoiaEmbed() {
 
   return {
     color: 0xffb7c5,
-    author: { name: '✿ apoia o Failuerc ✿' },
+    author: { name: 'Apoia a Failuerc' },
     description: [
-      '₊˚⊹ **obrigada por considerares apoiar o projeto** ⊹˚₊',
+      '₊˚⊹ **Obrigada por considerares apoiar o projeto** ⊹˚₊',
       '',
       'O Failuerc é gratuito, mas qualquer ajuda mantém o bot e o servidor online ♡',
       '',
-      'Podes pagar por **Revolut** ou **PIX** — escolhe o que for mais fácil para ti.',
+      'Podes pagar por **Revolut** ou **PIX**, escolhe o que for mais fácil para ti.',
     ].join('\n'),
     fields: [
       {
-        name: '💳 Revolut',
+        name: 'Revolut',
         value: `[Pagar com Revolut](${revolut})`,
         inline: true,
       },
       {
-        name: '📱 PIX',
+        name: 'PIX',
         value: `**Chave:** \`${pix}\``,
         inline: true,
       },
     ],
     footer: { text: `${config.bot.nome} · ${p}apoia` },
+  };
+}
+
+const COR_LAVANDA = parseInt((config.bot.corLavanda || '#ff8a94').replace('#', ''), 16);
+
+function faqPanelEmbed(panel) {
+  return {
+    color: COR_LAVANDA,
+    title: panel.title || 'Informações',
+    description: (panel.intro || []).join('\n'),
+    footer: { text: panel.footer || `${config.bot.nome} ⊹ infos` },
+  };
+}
+
+function faqTopicEmbed(topic, panel) {
+  return {
+    color: COR_LAVANDA,
+    title: topic.title || topic.label,
+    description: (topic.lines || []).join('\n'),
+    footer: { text: panel.footer || `${config.bot.nome} ⊹ infos` },
+  };
+}
+
+function commandSuggestEmbed(suggestedCommand, wrongAttempt) {
+  const p = config.bot.prefix;
+  return {
+    color: COR_LAVANDA,
+    description: [
+      'ʚ⊹ **ops!** parece que te enganaste no comando ⊹ɞ',
+      '',
+      wrongAttempt ? `escreveste \`${wrongAttempt}\`` : null,
+      `querias usar **\`${suggestedCommand}\`**? ♡`,
+      '',
+      '₊ ↷ tenta outra vez — estou aqui pra ajudar ໒꒱',
+      '',
+      `꒰ dica: o meu prefixo é \`${p}\` ꒱`,
+    ].filter(Boolean).join('\n'),
+    footer: { text: `${config.bot.nome} ⊹ ♡ ⊹ ajuda` },
+  };
+}
+
+function warnListEmbed(user, warnings) {
+  if (!warnings.length) {
+    return infoEmbed('Avisos', `${user} não tem avisos registados.`);
+  }
+
+  const lines = warnings.map((w, i) => (
+    `**${i + 1}.** ${w.reason}\n› por ${w.moderatorTag} · <t:${Math.floor(new Date(w.at).getTime() / 1000)}:R>`
+  ));
+
+  return {
+    ...baseEmbed(),
+    title: `⚠️ Avisos de ${user.username}`,
+    description: lines.join('\n\n'),
+    footer: { text: `${warnings.length} aviso(s) · ${config.bot.nome}` },
   };
 }
 
@@ -530,4 +653,10 @@ module.exports = {
   musicProfileEmbed,
   joinDmEmbed,
   apoiaEmbed,
+  moderationLogEmbed,
+  modHelpEmbed,
+  faqPanelEmbed,
+  faqTopicEmbed,
+  commandSuggestEmbed,
+  warnListEmbed,
 };

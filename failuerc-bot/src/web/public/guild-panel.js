@@ -616,12 +616,15 @@
     const muteMinutes = document.getElementById('ib-mute-minutes');
 
     if (enabled) enabled.checked = Boolean(config.inviteBlocker?.enabled);
-    if (action) action.value = config.inviteBlocker?.action === 'kick' ? 'kick' : 'mute';
+    if (action) {
+      const a = config.inviteBlocker?.action;
+      action.value = a === 'kick' ? 'kick' : a === 'mute' ? 'mute' : 'delete';
+    }
     if (muteMinutes) muteMinutes.value = config.inviteBlocker?.muteMinutes ?? 60;
 
     const toggleMuteField = () => {
       if (muteMinutes?.closest('.guild-form-field')) {
-        muteMinutes.closest('.guild-form-field').hidden = action?.value === 'kick';
+        muteMinutes.closest('.guild-form-field').hidden = action?.value !== 'mute';
       }
     };
     action?.addEventListener('change', toggleMuteField);

@@ -28,6 +28,7 @@ const {
   handleSuggestionModal,
   handleSuggestionButton,
 } = require('../../services/suggestions');
+const { handleFaqSelect } = require('../../services/faqPanel');
 
 module.exports = {
   name: Events.InteractionCreate,
@@ -76,6 +77,12 @@ module.exports = {
         else await interaction.reply(payload);
       }
       return;
+    }
+
+    if (interaction.isStringSelectMenu()) {
+      if (interaction.customId.startsWith('failuerc:faq:')) {
+        if (await handleFaqSelect(interaction)) return;
+      }
     }
 
     if (interaction.isButton()) {
