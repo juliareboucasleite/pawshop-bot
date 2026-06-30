@@ -15,6 +15,7 @@ const CUSTOM_IDS = {
   CONFESS_OPEN: 'failuerc:confess-open',
   CONFESS_MODAL: 'failuerc:confess-modal',
   FAQ_SELECT: 'failuerc:faq',
+  GIVEAWAY_JOIN: 'failuerc:giveaway:join',
 };
 
 function confessOpenId(guildId) {
@@ -78,6 +79,25 @@ function faqSelectId(guildId) {
 function parseFaqSelectId(customId) {
   const match = customId.match(/^failuerc:faq:(\d+)$/);
   return match ? match[1] : null;
+}
+
+function giveawayJoinId(guildId, giveawayId) {
+  return `${CUSTOM_IDS.GIVEAWAY_JOIN}:${guildId}:${giveawayId}`;
+}
+
+function parseGiveawayJoinId(customId) {
+  const match = customId.match(/^failuerc:giveaway:join:(\d+):(\d+)$/);
+  if (!match) return null;
+  return { guildId: match[1], giveawayId: match[2] };
+}
+
+function giveawayJoinButton(guildId, giveawayId, entrants = 0) {
+  return new ActionRowBuilder().addComponents(
+    new ButtonBuilder()
+      .setCustomId(giveawayJoinId(guildId, giveawayId))
+      .setLabel(`Participar 🎉 (${entrants})`)
+      .setStyle(ButtonStyle.Secondary),
+  );
 }
 
 function faqSelectRow(guildId, panel) {
@@ -239,6 +259,9 @@ module.exports = {
   faqSelectRow,
   faqSelectId,
   parseFaqSelectId,
+  giveawayJoinButton,
+  giveawayJoinId,
+  parseGiveawayJoinId,
   reactionKey,
   parseReactionInput,
   emojiKey: reactionKey,

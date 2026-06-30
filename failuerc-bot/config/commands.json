@@ -47,6 +47,18 @@
       "sinonimos": []
     },
     {
+      "categoria": "prefixo",
+      "nome": "f!sorteio criar",
+      "descricao": "Cria um sorteio com título, duração em horas e prémio. Membros clicam em Participar.",
+      "sinonimos": ["f!giveaway", "f!gw"]
+    },
+    {
+      "categoria": "prefixo",
+      "nome": "f!rank",
+      "descricao": "Rank por mensagens — vê progresso, top e ranks desbloqueáveis.",
+      "sinonimos": ["f!ranking", "f!xp", "f!nivel"]
+    },
+    {
       "categoria": "discord",
       "nome": "f!help",
       "descricao": "Lista todos os comandos disponíveis por mensagem e slash commands.",
@@ -188,43 +200,49 @@
       "categoria": "cargos",
       "nome": "/autorole adicionar",
       "descricao": "Adiciona um cargo ao autorole (dado ao entrar no servidor).",
-      "sinonimos": []
+      "sinonimos": ["f!autorole add", "f!ar add"]
     },
     {
       "categoria": "cargos",
       "nome": "/autorole remover",
       "descricao": "Remove um cargo do autorole.",
-      "sinonimos": []
+      "sinonimos": ["f!autorole remove", "f!ar remove"]
     },
     {
       "categoria": "cargos",
       "nome": "/autorole listar",
       "descricao": "Lista os cargos de autorole configurados.",
-      "sinonimos": []
+      "sinonimos": ["f!autorole list", "f!ar list"]
     },
     {
       "categoria": "cargos",
       "nome": "/reacao painel",
       "descricao": "Cria uma mensagem para reaction roles.",
-      "sinonimos": []
+      "sinonimos": ["f!rr panel", "f!reactionrole panel"]
     },
     {
       "categoria": "cargos",
       "nome": "/reacao adicionar",
       "descricao": "Adiciona uma reação + cargo a uma mensagem. Reagir dá o cargo; remover tira.",
-      "sinonimos": []
+      "sinonimos": ["f!rr add", "f!reactionrole add"]
     },
     {
       "categoria": "cargos",
       "nome": "/reacao listar",
       "descricao": "Lista todas as reaction roles configuradas.",
-      "sinonimos": []
+      "sinonimos": ["f!rr list"]
     },
     {
       "categoria": "cargos",
       "nome": "/reacao limpar",
       "descricao": "Remove reaction roles de uma mensagem.",
-      "sinonimos": []
+      "sinonimos": ["f!rr clear", "f!rr remove"]
+    },
+    {
+      "categoria": "moderacao",
+      "nome": "f!clear",
+      "descricao": "Apaga até 100 mensagens do canal (alias de f!limpar).",
+      "sinonimos": ["f!purge", "f!apagar", "f!limpar"]
     }
   ]
 }

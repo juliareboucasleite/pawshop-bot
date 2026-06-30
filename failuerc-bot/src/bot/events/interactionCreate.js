@@ -29,6 +29,7 @@ const {
   handleSuggestionButton,
 } = require('../../services/suggestions');
 const { handleFaqSelect } = require('../../services/faqPanel');
+const { handleGiveawayJoin } = require('../../services/giveaways');
 
 module.exports = {
   name: Events.InteractionCreate,
@@ -97,6 +98,9 @@ module.exports = {
         || interaction.customId.startsWith('failuerc:suggest:')
       ) {
         if (await handleSuggestionButton(interaction)) return;
+      }
+      if (interaction.customId.startsWith('failuerc:giveaway:join:')) {
+        if (await handleGiveawayJoin(interaction)) return;
       }
       if (interaction.customId === CUSTOM_IDS.TICKET_OPEN) await openTicket(interaction);
       if (interaction.customId === CUSTOM_IDS.VERIFY_TICKET_OPEN) await openVerificationTicket(interaction);

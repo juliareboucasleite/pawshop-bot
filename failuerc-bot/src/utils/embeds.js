@@ -624,6 +624,188 @@ function warnListEmbed(user, warnings) {
   };
 }
 
+function giveawayActiveEmbed(giveaway, hostUser) {
+  const endsUnix = Math.floor(new Date(giveaway.endsAt).getTime() / 1000);
+  const entrants = giveaway.entrants?.length || 0;
+
+  const lines = [
+    '₊˚⊹ **participa no sorteio** ⊹˚₊',
+    '',
+    `⊹ **prémio:** ${giveaway.prize}`,
+    `⊹ **termina:** <t:${endsUnix}:R> (<t:${endsUnix}:f>)`,
+    `⊹ **vencedores:** ${giveaway.winnersCount}`,
+    `⊹ **participantes:** ${entrants}`,
+    '',
+    'clica em **Participar** para entrar ♡',
+  ];
+
+  if (giveaway.requiredRoleId) {
+    lines.splice(5, 0, `⊹ **cargo necessário:** <@&${giveaway.requiredRoleId}>`);
+  }
+
+  return {
+    color: COR_LAVANDA,
+    title: `🎉 ${giveaway.title}`,
+    description: lines.join('\n'),
+    footer: {
+      text: `${config.bot.nome} · sorteio #${giveaway.id} · por ${hostUser?.username || 'staff'}`,
+    },
+  };
+}
+
+function giveawayEndedEmbed(giveaway, winnerMentions) {
+  const entrants = giveaway.entrants?.length || 0;
+  const lines = [
+    `⊹ **prémio:** ${giveaway.prize}`,
+    `⊹ **participantes:** ${entrants}`,
+    '',
+    winnerMentions.length
+      ? `🏆 **vencedor(es):** ${winnerMentions.join(', ')}`
+      : '😔 **ninguém participou** — sorteio encerrado sem vencedor.',
+  ];
+
+  return {
+    color: winnerMentions.length ? 0x57f287 : 0x95a5a6,
+    title: `🎉 ${giveaway.title} — terminado`,
+    description: lines.join('\n'),
+    footer: { text: `${config.bot.nome} · sorteio #${giveaway.id}` },
+  };
+}
+
+function giveawayHelpEmbed() {
+  const p = config.bot.prefix;
+  return {
+    color: COR_LAVANDA,
+    title: '🎁 Sorteios',
+    description: [
+      '**Criar sorteio**',
+      `\`${p}sorteio criar Título | horas | prémio\``,
+      `\`${p}sorteio criar Título | 24 | 1 mês Nitro | 2\` — 2 vencedores`,
+      `\`${p}sorteio criar Título | 12 | VIP | 1 | @cargo\` — exige cargo`,
+      '',
+      '**Gerir**',
+      `\`${p}sorteio list\` — sorteios ativos`,
+      `\`${p}sorteio cancelar <id>\` — cancela`,
+      `\`${p}sorteio reroll <id>\` — novo vencedor`,
+      `\`${p}sorteio end <id>\` — terminar agora`,
+      '',
+      'Usa `|` para separar título, horas, prémio e opcionais.',
+    ].join('\n'),
+    footer: { text: `${config.bot.nome} · sorteios` },
+  };
+}
+
+function rankProfileEmbed(user, profile, guildName) {
+  const { messages, level, tier, next, position } = profile;
+  const lines = [
+    '₊˚⊹ **o teu progresso** ⊹˚₊',
+    '',
+    `⊹ **mensagens:** ${messages}`,
+    `⊹ **nível:** ${level}`,
+    tier
+      ? `⊹ **rank atual:** ${tier.label} (nível ${tier.level})`
+      : '⊹ **rank atual:** — ainda sem rank —',
+    next
+      ? `⊹ **próximo rank:** ${next.label} — faltam **${next.messages - messages}** mensagens`
+      : '⊹ **próximo rank:** máximo alcançado ♡',
+  ];
+
+  if (position) {
+    lines.push(`⊹ **posição no servidor:** #${position}`);
+  }
+
+  return {
+    color: COR_LAVANDA,
+    author: { name: user.username, iconURL: user.displayAvatarURL({ size: 64 }) },
+    title: '🏆 Rank',
+    description: lines.join('\n'),
+    footer: { text: `${config.bot.nome} · ${guildName}` },
+  };
+}
+
+function rankLeaderboardEmbed(entries, guildName) {
+  if (!entries.length) {
+    return infoEmbed('Ranking', 'Ainda não há dados. Interage no servidor para subir de rank!');
+  }
+
+  const medals = ['🥇', '🥈', '🥉'];
+  const lines = entries.map((e, i) => {
+    const medal = medals[i] || `**${i + 1}.**`;
+    const tierLabel = e.tier?.label ? ` · ${e.tier.label}` : '';
+    return `${medal} <@${e.userId}> — **${e.messages}** msgs · nível **${e.level}**${tierLabel}`;
+  });
+
+  return {
+    color: COR_LAVANDA,
+    title: '🏆 Top ranking',
+    description: lines.join('\n'),
+    footer: { text: `${config.bot.nome} · ${guildName}` },
+  };
+}
+
+function rankTiersEmbed(tiers) {
+  if (!tiers.length) {
+    return infoEmbed('Ranks', 'Nenhum rank configurado.');
+  }
+
+  const lines = tiers.map((t) => {
+    const role = t.roleId ? ` → <@&${t.roleId}>` : ' → *sem cargo*';
+    return `**${t.label}** — nível **${t.level}** · **${t.messages}** mensagens${role}`;
+  });
+
+  return {
+    color: COR_LAVANDA,
+    title: '🎖️ Ranks por mensagens',
+    description: [
+      'Quanto mais participas no servidor, mais mensagens acumulas e desbloqueias ranks.',
+      '',
+      ...lines,
+    ].join('\n'),
+    footer: { text: `${config.bot.nome} · ranking` },
+  };
+}
+
+function levelUpEmbed(member, tier) {
+  return {
+    color: 0x57f287,
+    title: '🎉 Subiste de rank!',
+    description: [
+      `${member} alcançou **${tier.label}**!`,
+      '',
+      `⊹ **nível:** ${tier.level}`,
+      `⊹ **mensagens:** ${tier.messages}+`,
+      '',
+      'Obrigada por fazer parte da comunidade ♡',
+    ].join('\n'),
+    footer: { text: `${config.bot.nome} · ranking` },
+  };
+}
+
+function rankHelpEmbed() {
+  const p = config.bot.prefix;
+  return {
+    color: COR_LAVANDA,
+    title: '🏆 Sistema de Rank',
+    description: [
+      'Ganhas **1 mensagem contada** a cada interação (cooldown de 45s).',
+      '**Nível** = mensagens ÷ 10 (ex.: 300 msgs = nível 30).',
+      '',
+      '**Membros**',
+      `\`${p}rank\` — o teu rank`,
+      `\`${p}rank @membro\` — rank de alguém`,
+      `\`${p}rank top\` — top 10`,
+      `\`${p}rank ranks\` — lista de ranks e requisitos`,
+      '',
+      '**Staff**',
+      `\`${p}rank on\` / \`off\` — ativar sistema`,
+      `\`${p}rank tier 300 @cargo Nome do Rank\` — definir cargo num marco`,
+      `\`${p}rank tier list\` — ver marcos`,
+      `\`${p}rank reset @membro\` — resetar um membro`,
+    ].join('\n'),
+    footer: { text: `${config.bot.nome} · ranking` },
+  };
+}
+
 module.exports = {
   COR,
   verificationPanel,
@@ -659,4 +841,12 @@ module.exports = {
   faqTopicEmbed,
   commandSuggestEmbed,
   warnListEmbed,
+  giveawayActiveEmbed,
+  giveawayEndedEmbed,
+  giveawayHelpEmbed,
+  rankProfileEmbed,
+  rankLeaderboardEmbed,
+  rankTiersEmbed,
+  levelUpEmbed,
+  rankHelpEmbed,
 };

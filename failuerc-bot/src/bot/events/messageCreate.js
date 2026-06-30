@@ -7,6 +7,7 @@ const { isAdmin, isModerator } = require('../../utils/permissions');
 const { isCommandChannelAllowed } = require('../../services/commandChannels');
 const { handleInviteBlock } = require('../../services/inviteBlocker');
 const { handleAntiSpam } = require('../../services/antiSpam');
+const { handleRankMessage } = require('../../services/ranking');
 const { handleFashionMessage } = require('../../services/fashionVotes');
 const { handleMusicMessage } = require('../../services/musicShares');
 const { errorEmbed, commandSuggestEmbed } = require('../../utils/embeds');
@@ -67,9 +68,12 @@ module.exports = {
     if (message.author.bot || !message.guild) return;
 
     try {
-      await handleAntiSpam(message);
+      const spam = await handleAntiSpam(message);
+      if (!spam) {
+        await handleRankMessage(message);
+      }
     } catch (err) {
-      console.error('[anti-spam]', err);
+      console.error('[anti-spam/rank]', err);
     }
 
     try {

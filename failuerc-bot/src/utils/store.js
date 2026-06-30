@@ -3,6 +3,7 @@ const path = require('node:path');
 
 const DATA_DIR = path.join(__dirname, '..', '..', 'data');
 const GUILDS_FILE = path.join(DATA_DIR, 'guilds.json');
+const DEFAULT_RANK_TIERS = require('../../config/rank-tiers.json');
 
 function ensureDataDir() {
   if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
@@ -117,6 +118,18 @@ function defaultGuildConfig() {
       shareCounter: 0,
       users: {},
     },
+    giveaways: {
+      counter: 0,
+      items: {},
+    },
+    ranking: {
+      enabled: false,
+      cooldownSeconds: 45,
+      announceLevelUp: true,
+      levelUpChannelId: null,
+      tiers: DEFAULT_RANK_TIERS.map((t) => ({ ...t, roleId: null })),
+      users: {},
+    },
   };
 }
 
@@ -155,6 +168,15 @@ function removeReactionRolesForMessage(guildId, messageId) {
   return updateGuildConfig(guildId, (cfg) => ({
     ...cfg,
     reactionRoles: cfg.reactionRoles.filter((r) => r.messageId !== messageId),
+  }));
+}
+
+function removeReactionRole(guildId, messageId, emoji) {
+  return updateGuildConfig(guildId, (cfg) => ({
+    ...cfg,
+    reactionRoles: cfg.reactionRoles.filter(
+      (r) => !(r.messageId === messageId && r.emoji === emoji),
+    ),
   }));
 }
 
@@ -253,6 +275,23 @@ function nextConfessionNumber(guildId) {
   return num;
 }
 
+function nextGiveawayId(guildId) {
+  let id = '';
+  updateGuildConfig(guildId, (cfg) => {
+    const num = (cfg.giveaways?.counter || 0) + 1;
+    id = String(num);
+    return {
+      ...cfg,
+      giveaways: {
+        ...cfg.giveaways,
+        counter: num,
+        items: cfg.giveaways?.items || {},
+      },
+    };
+  });
+  return id;
+}
+
 module.exports = {
   getGuildConfig,
   setGuildConfig,
@@ -260,6 +299,7 @@ module.exports = {
   readGuilds,
   addReactionRole,
   removeReactionRolesForMessage,
+  removeReactionRole,
   findReactionRole,
   nextTicketNumber,
   nextConfessionNumber,
@@ -271,4 +311,5 @@ module.exports = {
   setTicketDetails,
   updateTicketDetails,
   removeTicketDetails,
+  nextGiveawayId,
 };

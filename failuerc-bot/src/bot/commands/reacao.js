@@ -5,12 +5,12 @@ const {
 } = require('discord.js');
 const { isAdmin } = require('../../utils/permissions');
 const {
-  addReactionRole,
   removeReactionRolesForMessage,
   getGuildConfig,
 } = require('../../utils/store');
 const { reactionRolePanel, errorEmbed, successEmbed, infoEmbed } = require('../../utils/embeds');
-const { parseReactionInput } = require('../../utils/components');
+const { setupReactionRole } = require('../../services/reactionRoleSetup');
+const config = require('../../../config/default.json');
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -77,8 +77,9 @@ module.exports = {
       const descricao = interaction.options.getString('descricao');
       const embed = new EmbedBuilder(reactionRolePanel(titulo, descricao));
       const msg = await interaction.channel.send({ embeds: [embed] });
+      const p = config.bot.prefix;
       return interaction.reply({
-        embeds: [successEmbed('Painel criado', `Usa \`/reacao adicionar mensagem_id:${msg.id}\` para cada reação.\n${msg.url}`)],
+        embeds: [successEmbed('Painel criado', `Usa \`${p}rr add ${msg.id} <emoji> @cargo\` para cada reação.\n${msg.url}`)],
         ephemeral: true,
       });
     }
@@ -96,42 +97,21 @@ module.exports = {
       const messageId = interaction.options.getString('mensagem_id');
       const reactionInput = interaction.options.getString('reacao');
       const role = interaction.options.getRole('cargo');
-      const parsed = parseReactionInput(reactionInput);
 
-      const channel = interaction.channel;
-      let message;
-      try {
-        message = await channel.messages.fetch(messageId);
-      } catch {
+      const result = await setupReactionRole(
+        interaction.guild,
+        messageId,
+        reactionInput,
+        role,
+        { preferredChannel: interaction.channel },
+      );
+
+      if (!result.ok) {
         return interaction.reply({
-          embeds: [errorEmbed('Mensagem não encontrada neste canal. Usa o comando no canal certo ou fornece o ID correto.')],
+          embeds: [errorEmbed(result.error)],
           ephemeral: true,
         });
       }
-
-      if (role.managed || role.position >= interaction.guild.members.me.roles.highest.position) {
-        return interaction.reply({
-          embeds: [errorEmbed('Não consigo gerir esse cargo — coloca o bot acima dele na hierarquia.')],
-          ephemeral: true,
-        });
-      }
-
-      try {
-        await message.react(parsed.id ?? parsed.name);
-      } catch (err) {
-        return interaction.reply({
-          embeds: [errorEmbed(`Não foi possível adicionar essa reação: ${err.message}`)],
-          ephemeral: true,
-        });
-      }
-
-      const reactionKey = parsed.id ?? parsed.name;
-      addReactionRole(interaction.guild.id, {
-        messageId: message.id,
-        channelId: message.channel.id,
-        emoji: reactionKey,
-        roleId: role.id,
-      });
 
       return interaction.reply({
         embeds: [successEmbed('Reaction role adicionada', `${reactionInput} → ${role}\nReagir dá o cargo; remover a reação tira o cargo.`)],

@@ -1,0 +1,7 @@
+[
+  { "messages": 300, "level": 30, "label": "Entity's Gift" },
+  { "messages": 800, "level": 50, "label": "Bloodmarked Booster" },
+  { "messages": 1000, "level": 80, "label": "Sacrificed Supporter" },
+  { "messages": 1500, "level": 100, "label": "Offering Holder" },
+  { "messages": 15000, "level": 150, "label": "Ritual Contributor" }
+]

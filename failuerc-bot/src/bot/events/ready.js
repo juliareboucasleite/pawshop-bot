@@ -6,6 +6,7 @@ const { registerSlashCommands } = require('../registerCommands');
 const { startFashionMonthlyScheduler } = require('../../services/fashionVotes');
 const { startPresenceRotator } = require('../../services/presenceRotator');
 const { startTicketClaimReminderScheduler } = require('../../services/ticketClaimReminder');
+const { startGiveawayScheduler } = require('../../services/giveaways');
 
 module.exports = {
   name: Events.ClientReady,
@@ -37,5 +38,6 @@ module.exports = {
     startPresenceRotator(client);
     startFashionMonthlyScheduler(client);
     startTicketClaimReminderScheduler(client);
+    startGiveawayScheduler(client);
   },
 };

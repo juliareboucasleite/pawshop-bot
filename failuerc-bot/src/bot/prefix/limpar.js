@@ -49,6 +49,6 @@ module.exports = {
   name: 'limpar',
   description: 'Apaga mensagens do canal',
   moderatorOnly: true,
-  aliases: ['clear', 'purge'],
+  aliases: ['purge', 'apagar', 'clean'],
   execute: runPurge,
 };
